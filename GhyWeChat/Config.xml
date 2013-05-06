@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<assmblyinfo>
+  <class key="空教室">
+    <assmblyname>Sign</assmblyname>
+    <strfactoryName>InquiryClass</strfactoryName>
+  </class>
+  <class key="美食">
+    <assmblyname>WebApp</assmblyname>
+    <strfactoryName>PublicComment</strfactoryName>
+  </class>
+  <class key="照片打分">
+    <assmblyname>WebApp</assmblyname>
+    <strfactoryName>FaceRecognition</strfactoryName>
+  </class>
+  <class key="小黄鸡">
+    <assmblyname>WebApp</assmblyname>
+    <strfactoryName>Robot</strfactoryName>
+  </class>
+  <class key="晚安|早安">
+    <assmblyname>Sign</assmblyname>
+    <strfactoryName>SayGoodNight</strfactoryName>
+  </class>
+</assmblyinfo>

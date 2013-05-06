@@ -1,0 +1,19 @@
+0 2013-4-9 20:54:09
+<xml><ToUserName><![CDATA[ohaiejrVhycc1qUc2zG1CPvpW74g]]></ToUserName><FromUserName><![CDATA[gh_dcddc962ac5d]]></FromUserName><CreateTime>1365512049</CreateTime><MsgType><![CDATA[text]]></MsgType><Content><![CDATA[欢迎进入私密功能 香菇打分 
+请发送你的玉照吧
+如果一分钟后还未回复消息 那么上传失败了
+发送#回到主页面]]></Content><MsgId>1234567890123456</MsgId></xml>
+1 2013-4-9 20:55:09
+<xml><ToUserName><![CDATA[ohaiejrVhycc1qUc2zG1CPvpW74g]]></ToUserName><FromUserName><![CDATA[gh_dcddc962ac5d]]></FromUserName><CreateTime>1365512119</CreateTime><MsgType><![CDATA[text]]></MsgType><Content><![CDATA[图片上传超时！
+]]></Content><MsgId>1234567890123456</MsgId></xml>
+1 2013-4-9 20:56:05
+<xml><ToUserName><![CDATA[ohaiejrVhycc1qUc2zG1CPvpW74g]]></ToUserName><FromUserName><![CDATA[gh_dcddc962ac5d]]></FromUserName><CreateTime>1365512165</CreateTime><MsgType><![CDATA[text]]></MsgType><Content><![CDATA[请发送图片]]></Content><MsgId>1234567890123456</MsgId></xml>
+1 2013-4-9 20:56:13
+0 2013-04-10 11:45:13
+0 2013-04-10 11:54:40
+0 2013-04-12 09:27:56
+0 2013-04-12 09:51:06
+0 2013-04-27 01:14:41
+0 2013-04-27 01:51:53
+0 2013-04-27 14:57:31
+0 2013-04-27 15:02:13
