@@ -65,8 +65,8 @@ namespace Sign
                              time2 = Convert.ToDateTime("10:15"),
                              time3 = Convert.ToDateTime("12:00"),
                              time4 = Convert.ToDateTime("15:35"),
-                             time5 = Convert.ToDateTime("5:25"),
-                             time6 = Convert.ToDateTime("9:00");
+                             time5 = Convert.ToDateTime("17:25"),
+                             time6 = Convert.ToDateTime("21:00");
 
                     if (DateTime.Now < time2)
                         i = 0;
@@ -105,7 +105,7 @@ namespace Sign
                     }
                     if (j == 5 || i == 5)
                     {
-                        reply = "现在不是上课时间，随便都能上自习啊";
+                        reply = DateTime.Now.Hour + ":" + DateTime.Now.Minute+" 不是上课时间，随便哪都能上自习";
                     }
                     else
                     {

@@ -18,7 +18,7 @@
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
+    <Optimize>true</Optimize>
     <OutputPath>bin\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
@@ -45,12 +45,13 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Config.xml" />
-    <Content Include="Default.aspx" />
+    <Content Include="ghyadmin\Default.aspx" />
     <Content Include="Global.asax" />
-    <Content Include="Scripts\jquery-1.4.1-vsdoc.js" />
-    <Content Include="Scripts\jquery-1.4.1.js" />
-    <Content Include="Scripts\jquery-1.4.1.min.js" />
-    <Content Include="Scripts\md5.js" />
+    <Content Include="ghyadmin\Scripts\Adam.js" />
+    <Content Include="ghyadmin\Scripts\jquery-1.4.1-vsdoc.js" />
+    <Content Include="ghyadmin\Scripts\jquery-1.4.1.js" />
+    <Content Include="ghyadmin\Scripts\jquery-1.4.1.min.js" />
+    <Content Include="ghyadmin\Scripts\md5.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -61,11 +62,11 @@
     <Content Include="数据结构说明.txt" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Default.aspx.cs">
+    <Compile Include="ghyadmin\Default.aspx.cs">
       <SubType>ASPXCodeBehind</SubType>
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Default.aspx.designer.cs">
+    <Compile Include="ghyadmin\Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
@@ -80,7 +81,7 @@
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\SwufeDream\Common\Common.csproj">
+    <ProjectReference Include="..\Common\Common.csproj">
       <Project>{E0E45319-2832-44C3-B085-BC541161113F}</Project>
       <Name>Common</Name>
     </ProjectReference>
@@ -91,6 +92,10 @@
     <ProjectReference Include="..\Factory\Factory.csproj">
       <Project>{6C6E9461-BEF7-4638-BE45-9DB1891532DC}</Project>
       <Name>Factory</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WebApp\WebApp.csproj">
+      <Project>{837F09F1-3037-4B12-B8C2-9113C9FA5B8C}</Project>
+      <Name>WebApp</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

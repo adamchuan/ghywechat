@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Entity", "Entity\Entity.csproj", "{32590E25-261C-4294-B756-631BD46C6358}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common", "..\SwufeDream\Common\Common.csproj", "{E0E45319-2832-44C3-B085-BC541161113F}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GhyWeChat", "GhyWeChat\GhyWeChat.csproj", "{3C93B1F8-7B4C-415E-8844-F3C13926E69D}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sign", "Sign\Sign.csproj", "{95D07AAC-CE30-42E7-8A43-EDBEFF62179F}"
@@ -12,6 +10,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Factory", "Factory\Factory.csproj", "{6C6E9461-BEF7-4638-BE45-9DB1891532DC}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApp", "WebApp\WebApp.csproj", "{837F09F1-3037-4B12-B8C2-9113C9FA5B8C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common", "Common\Common.csproj", "{E0E45319-2832-44C3-B085-BC541161113F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,16 +33,6 @@ Global
 		{32590E25-261C-4294-B756-631BD46C6358}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{32590E25-261C-4294-B756-631BD46C6358}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{32590E25-261C-4294-B756-631BD46C6358}.Release|x86.ActiveCfg = Release|Any CPU
-		{E0E45319-2832-44C3-B085-BC541161113F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E0E45319-2832-44C3-B085-BC541161113F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E0E45319-2832-44C3-B085-BC541161113F}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
-		{E0E45319-2832-44C3-B085-BC541161113F}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
-		{E0E45319-2832-44C3-B085-BC541161113F}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{E0E45319-2832-44C3-B085-BC541161113F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E0E45319-2832-44C3-B085-BC541161113F}.Release|Any CPU.Build.0 = Release|Any CPU
-		{E0E45319-2832-44C3-B085-BC541161113F}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
-		{E0E45319-2832-44C3-B085-BC541161113F}.Release|Mixed Platforms.Build.0 = Release|Any CPU
-		{E0E45319-2832-44C3-B085-BC541161113F}.Release|x86.ActiveCfg = Release|Any CPU
 		{3C93B1F8-7B4C-415E-8844-F3C13926E69D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{3C93B1F8-7B4C-415E-8844-F3C13926E69D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3C93B1F8-7B4C-415E-8844-F3C13926E69D}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
@@ -83,6 +73,16 @@ Global
 		{837F09F1-3037-4B12-B8C2-9113C9FA5B8C}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{837F09F1-3037-4B12-B8C2-9113C9FA5B8C}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{837F09F1-3037-4B12-B8C2-9113C9FA5B8C}.Release|x86.ActiveCfg = Release|Any CPU
+		{E0E45319-2832-44C3-B085-BC541161113F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E0E45319-2832-44C3-B085-BC541161113F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E0E45319-2832-44C3-B085-BC541161113F}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{E0E45319-2832-44C3-B085-BC541161113F}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{E0E45319-2832-44C3-B085-BC541161113F}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{E0E45319-2832-44C3-B085-BC541161113F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E0E45319-2832-44C3-B085-BC541161113F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E0E45319-2832-44C3-B085-BC541161113F}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{E0E45319-2832-44C3-B085-BC541161113F}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{E0E45319-2832-44C3-B085-BC541161113F}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

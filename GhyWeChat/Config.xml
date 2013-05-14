@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <assmblyinfo>
-  <class key="空教室">
+  <class key="空教室|自习室|自习">
     <assmblyname>Sign</assmblyname>
     <strfactoryName>InquiryClass</strfactoryName>
   </class>
@@ -19,5 +19,9 @@
   <class key="晚安|早安">
     <assmblyname>Sign</assmblyname>
     <strfactoryName>SayGoodNight</strfactoryName>
+  </class>
+  <class key="图书馆">
+    <assmblyname>WebApp</assmblyname>
+    <strfactoryName>Library</strfactoryName>
   </class>
 </assmblyinfo>

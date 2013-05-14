@@ -41,7 +41,7 @@
     <Compile Include="SayGoodNight.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\SwufeDream\Common\Common.csproj">
+    <ProjectReference Include="..\Common\Common.csproj">
       <Project>{E0E45319-2832-44C3-B085-BC541161113F}</Project>
       <Name>Common</Name>
     </ProjectReference>

@@ -69,7 +69,7 @@ namespace WebApp
 
                 List<news> picnews = new List<news>();
                 news a = new news();
-                a.PicUrl = "http://i2.dpfile.com/s/i/app/api/images/accr-logo3.38af0ad2ec67a5b7062d36b800b80b48.png";
+                a.PicUrl = "http://www.ghy.swufe.edu.cn/GHYWEIXIN/file/images/dzdp.png";
                 a.Title = "来自大众点评";
                 picnews.Add(a);
                 foreach (XmlNode xn in xnl)

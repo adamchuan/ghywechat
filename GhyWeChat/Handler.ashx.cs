@@ -17,7 +17,7 @@ namespace GhyWeChat
     {
         const string Token = "ghy";		//你的token
         List<User> user;
-        string introduce = "HI~欢迎关注光华园网站官方微信平台！我是管理员香菇。\r\n发送关键字\r\n 美食\r\n 小黄鸡\r\n 照片打分\r\n 空教室\r\n 可以收到相应内容哦   \r\n更多功能开发中，敬请期待哦~（点击ghy.cn，下载你的大学生活）";
+        string introduce = "HI~欢迎关注光华园网站官方微信平台！我是管理员香菇。\r\n发送关键字\r\n图书馆\r\n 美食\r\n 小黄鸡\r\n 照片打分\r\n 空教室 自习室 自习\r\n 可以收到相应内容哦   \r\n更多功能开发中，敬请期待哦~（点击ghy.cn，下载你的大学生活）";
    
         public void ProcessRequest(HttpContext context)
         {

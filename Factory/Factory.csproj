@@ -40,6 +40,10 @@
     <Compile Include="WeChatFactory.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Common\Common.csproj">
+      <Project>{E0E45319-2832-44C3-B085-BC541161113F}</Project>
+      <Name>Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Entity\Entity.csproj">
       <Project>{32590E25-261C-4294-B756-631BD46C6358}</Project>
       <Name>Entity</Name>
