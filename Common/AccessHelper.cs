@@ -34,17 +34,19 @@ namespace Common
             OleDbConnection objConnection = new OleDbConnection(strConnection);  //建立连接  
             objConnection.Open();  //打开连接  
             OleDbCommand sqlcmd = new OleDbCommand(sql, objConnection);  //sql语句 
+            int result= sqlcmd.ExecuteNonQuery();
             objConnection.Close();
-            return sqlcmd.ExecuteNonQuery();
+            return result;
 
         }
-        public object  ExecuteScalar(string sql)
+        public object ExecuteScalar(string sql)
         {
             OleDbConnection objConnection = new OleDbConnection(strConnection);  //建立连接  
             objConnection.Open();  //打开连接  
             OleDbCommand sqlcmd = new OleDbCommand(sql, objConnection);  //sql语句 
+            object result=sqlcmd.ExecuteScalar();
             objConnection.Close();
-            return sqlcmd.ExecuteScalar();
+            return result;
         }
     }
 }

@@ -196,19 +196,30 @@ namespace GhyWeChat
                             XmlDocument xml = new XmlDocument();
                             xml.Load(System.AppDomain.CurrentDomain.BaseDirectory + @"/Config.xml");
                             XmlNodeList xnl = xml.GetElementsByTagName("class");
+                            bool isFind = false;
+                            WeChatFactory factory;
                             foreach (XmlNode xn in xnl)
                             {
                                 string[] keys = xn.Attributes["key"].Value.Split('|');
+                         
                                 foreach (string key in keys)
                                 {
                                     if (firststate == key)
                                     {
                                         string assmblyname = xn.SelectSingleNode("assmblyname").InnerText;
                                         string strfactoryName = xn.SelectSingleNode("strfactoryName").InnerText;
-                                        WeChatFactory factory = (WeChatFactory)Assembly.Load(assmblyname).CreateInstance(assmblyname + "." + strfactoryName);
+                                        factory = (WeChatFactory)Assembly.Load(assmblyname).CreateInstance(assmblyname + "." + strfactoryName);
                                         reply = factory.Entrance(currentuser, receivemsg, rm);
+                                        isFind = true;
                                     }
                                 }
+                                if (isFind)
+                                    break;
+                            }
+                            if (!isFind)
+                            {
+                                factory = (WeChatFactory)new EditorMode();
+                                reply = factory.Entrance(currentuser, receivemsg, rm);
                             }
                             //根据用户的首状态进入不同的类开始处理                    
                             //switch (firststate)

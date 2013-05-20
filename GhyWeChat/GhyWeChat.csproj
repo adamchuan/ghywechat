@@ -45,7 +45,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Config.xml" />
+    <Content Include="ghyadmin\AddTextResponse.aspx" />
+    <Content Include="ghyadmin\database\ghywc.mdb" />
     <Content Include="ghyadmin\Default.aspx" />
+    <Content Include="ghyadmin\EditorIntroduce.aspx" />
+    <Content Include="ghyadmin\EditorNotice.aspx" />
+    <Content Include="ghyadmin\Login.aspx" />
     <Content Include="Global.asax" />
     <Content Include="ghyadmin\Scripts\Adam.js" />
     <Content Include="ghyadmin\Scripts\jquery-1.4.1-vsdoc.js" />
@@ -62,13 +67,47 @@
     <Content Include="数据结构说明.txt" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ghyadmin\Default.aspx.cs">
+    <Compile Include="EditorMode.cs" />
+    <Compile Include="ghyadmin\AddTextResponse.aspx.cs">
+      <DependentUpon>AddTextResponse.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ghyadmin\AddTextResponse.aspx.designer.cs">
+      <DependentUpon>AddTextResponse.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ghyadmin\BaseWeb.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ghyadmin\DbOpeater.cs" />
+    <Compile Include="ghyadmin\Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="ghyadmin\Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
+    <Compile Include="ghyadmin\EditorIntroduce.aspx.cs">
+      <DependentUpon>EditorIntroduce.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ghyadmin\EditorIntroduce.aspx.designer.cs">
+      <DependentUpon>EditorIntroduce.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ghyadmin\EditorNotice.aspx.cs">
+      <DependentUpon>EditorNotice.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ghyadmin\EditorNotice.aspx.designer.cs">
+      <DependentUpon>EditorNotice.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ghyadmin\Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ghyadmin\Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ghyadmin\Entity\Admin.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -92,10 +131,6 @@
     <ProjectReference Include="..\Factory\Factory.csproj">
       <Project>{6C6E9461-BEF7-4638-BE45-9DB1891532DC}</Project>
       <Name>Factory</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\WebApp\WebApp.csproj">
-      <Project>{837F09F1-3037-4B12-B8C2-9113C9FA5B8C}</Project>
-      <Name>WebApp</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

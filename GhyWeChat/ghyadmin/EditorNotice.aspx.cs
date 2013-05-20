@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace GhyWeChat.ghyadmin
 {
-    public partial class Default : ghyadmin.BaseWeb
+    public partial class EditorNotice : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
