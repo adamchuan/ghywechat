@@ -51,6 +51,8 @@
     <Content Include="ghyadmin\EditorIntroduce.aspx" />
     <Content Include="ghyadmin\EditorNotice.aspx" />
     <Content Include="ghyadmin\Login.aspx" />
+    <Content Include="ghyadmin\MaterialManager.aspx" />
+    <Content Include="ghyadmin\ResponseManager.aspx" />
     <Content Include="Global.asax" />
     <Content Include="ghyadmin\Scripts\Adam.js" />
     <Content Include="ghyadmin\Scripts\jquery-1.4.1-vsdoc.js" />
@@ -108,6 +110,20 @@
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
     <Compile Include="ghyadmin\Entity\Admin.cs" />
+    <Compile Include="ghyadmin\MaterialManager.aspx.cs">
+      <DependentUpon>MaterialManager.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ghyadmin\MaterialManager.aspx.designer.cs">
+      <DependentUpon>MaterialManager.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ghyadmin\ResponseManager.aspx.cs">
+      <DependentUpon>ResponseManager.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ghyadmin\ResponseManager.aspx.designer.cs">
+      <DependentUpon>ResponseManager.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>

@@ -7,6 +7,7 @@ using Common;
 using System.Data;
 namespace GhyWeChat
 {
+ 
     public class Response
     {
         private int responseID;
@@ -19,18 +20,24 @@ namespace GhyWeChat
         private string key;
         private DateTime createtime;
         private int msgType;
-        private int creator;
-
-        public int Creator
-        {
-            get { return creator; }
-            set { creator = value; }
-        }
 
         public int MsgType
         {
             get { return msgType; }
             set { msgType = value; }
+        }
+        private int creator;
+        private int msgID;
+     
+        public int MsgID
+        {
+            get { return msgID; }
+            set { msgID = value; }
+        }
+        public int Creator
+        {
+            get { return creator; }
+            set { creator = value; }
         }
 
         public DateTime Createtime
@@ -47,52 +54,107 @@ namespace GhyWeChat
     }
     public class EditorMode:WeChatFactory
     {
+        public string EventResponse(User user,WeiXinData weixindata,ResponseMsg rm)
+        {
+            string constr = System.Configuration.ConfigurationManager.ConnectionStrings["constr"].ConnectionString;
+            AccessHelper ah = new AccessHelper(constr, 1);
+            string reply="";
+            switch (weixindata.Weixinevent)
+            {
+                case "subscribe":
+                    reply = GetIntroOrAutoReply(1, rm);
+                    break;
+                case "unsubscribe":
+                    Used.WriteLog(weixindata.FromUserName + "取消关注");
+                    break;
+                default:
+                    break;
+            }
+            return reply;
+        }
+        public string GetIntroOrAutoReply(int mode,ResponseMsg rm)
+        {
+            string tablename = "";
+            string reply = "";
+            switch (mode)
+            {
+                case 1:
+                    tablename = "Introduce";
+                    break;
+                case 2:
+                    tablename = "AutoReply";
+                    break;
+                default:
+                    return "";
+            }
+            AccessHelper ah = new AccessHelper(System.Configuration.ConfigurationManager.ConnectionStrings["constr"].ConnectionString, 1);
+            string sql = string.Format("select top 1 * from [{0}]",tablename);
+            DataTable introducetable = ah.Reader(sql);
+            int msgtype = Int32.Parse(introducetable.Rows[0][0].ToString()),
+                msgid = Int32.Parse(introducetable.Rows[0][1].ToString());
+            switch (msgtype)
+            {
+                case 1:
+                    sql = string.Format("select top 1 * from [ResponseText] where TextID={0}", msgid);
+                    DataTable texttable = ah.Reader(sql);
+                    reply = rm.ResponseText(texttable.Rows[0][0].ToString());
+                    break;
+                default:
+                    break;
+            }
+            return reply;
 
+        }
         public override string Entrance(User user, WeiXinData weixindata, ResponseMsg rm)
         {
             string reply = "";
-            string introduce = "HI~欢迎关注光华园网站官方微信平台！我是管理员香菇。\r\n发送关键字\r\n图书馆\r\n 美食\r\n 小黄鸡\r\n 照片打分\r\n 空教室 自习室 自习\r\n 可以收到相应内容哦   \r\n更多功能开发中，敬请期待哦~（点击ghy.cn，下载你的大学生活）";
-   
+  
             string constr=System.Configuration.ConfigurationManager.ConnectionStrings["constr"].ConnectionString;
-            if(weixindata.MsgType.Equals("text"))
+            if (!weixindata.MsgType.Equals("text"))
+                reply = GetIntroOrAutoReply(2, rm);
+            else
             {
                 string key = RegularExpreesions.MyEncodeInputString(weixindata.Content);
-                AccessHelper ah = new AccessHelper( constr,1);
-                string sql="select * from Response where Key='"+key+"' and state=1";
-                DataTable ResponseTable=ah.Reader(sql);
+                AccessHelper ah = new AccessHelper(constr, 1);
+                string sql = "select * from Response where Key='" + key + "' and state=1";
+                DataTable ResponseTable = ah.Reader(sql);
 
-                if (ResponseTable.Rows.Count > 0)
+                if (ResponseTable.Rows.Count == 0)
+                { 
+                    reply = GetIntroOrAutoReply(1, rm);//没有找到关键字时 自动回复
+                    Used.WriteLog(reply);
+                }
+                else
                 {
                     Response response = new Response();
                     response.Creator = Int32.Parse(ResponseTable.Rows[0][0].ToString());
-                    response.MsgType = Int32.Parse(ResponseTable.Rows[0][1].ToString());
-                    response.ResponseID = Int32.Parse(ResponseTable.Rows[0][2].ToString());
-                    response.Key = ResponseTable.Rows[0][3].ToString();
-                    response.Createtime = Convert.ToDateTime(ResponseTable.Rows[0][4]);
+                    response.ResponseID = Int32.Parse(ResponseTable.Rows[0][1].ToString());
+                    response.Key = ResponseTable.Rows[0][2].ToString();
+                    response.Createtime = Convert.ToDateTime(ResponseTable.Rows[0][3]);
+                    response.MsgType = Int32.Parse(ResponseTable.Rows[0][5].ToString());
+                    response.MsgID = Int32.Parse(ResponseTable.Rows[0][6].ToString());
 
                     switch (response.MsgType)
                     {
                         case 1:
-                            sql = "select [Text] from [ResponseText] where [State]=1 and [ResponseID]=" + response.ResponseID;
-                            try
+                            sql = "select [Text] from [ResponseText] where TextID=" + response.MsgID;
+                            object result = ah.ExecuteScalar(sql);
+                            if (result != null)
                             {
-                                reply = rm.ResponseText(ah.ExecuteScalar(sql).ToString());
+                                reply = rm.ResponseText(result.ToString());
                             }
-                            catch
-                            {
-                                reply = rm.ResponseText("内部错误");
-                            }
+                            else
+                                Used.WriteLog("出错 没有找到相应的回复" + response.MsgID + sql);
                             break;
                         default:
-                            reply = rm.ResponseText(introduce);
+                            //自动回复
+                            reply = GetIntroOrAutoReply(2, rm);
                             break;
                     }
                 }
-                else
-                    reply = rm.ResponseText(introduce);
-                
-                
+            
             }
+            reply = reply.Replace("<br>", "\r\n");
             return reply;
         }
     }

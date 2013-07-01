@@ -14,8 +14,10 @@ namespace Common
         }
         public static bool CheckNum(string num)
         {
-            System.Text.RegularExpressions.Regex reg1
-         = new System.Text.RegularExpressions.
+            if (num.Length <= 0)
+                return false;
+
+            System.Text.RegularExpressions.Regex reg1 = new System.Text.RegularExpressions.
              Regex(@"^[-]?[1-9]{1}\d*$|^[0]{1}$");
             bool ismatch = reg1.IsMatch(num);
             return ismatch;

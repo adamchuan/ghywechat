@@ -17,8 +17,7 @@ namespace GhyWeChat
     {
         const string Token = "ghy";		//你的token
         List<User> user;
-        string introduce = "HI~欢迎关注光华园网站官方微信平台！我是管理员香菇。\r\n发送关键字\r\n图书馆\r\n 美食\r\n 小黄鸡\r\n 照片打分\r\n 空教室 自习室 自习\r\n 可以收到相应内容哦   \r\n更多功能开发中，敬请期待哦~（点击ghy.cn，下载你的大学生活）";
-   
+     
         public void ProcessRequest(HttpContext context)
         {
             if (context.Request.HttpMethod.ToLower() == "post")
@@ -96,26 +95,7 @@ namespace GhyWeChat
         /// 
         /// </summary>
         /// <returns></returns>
-        private string receiveEvent(WeiXinData receiveData)
-        {
-            ResponseMsg rm = new ResponseMsg(receiveData.FromUserName, receiveData.ToUserName);
-            string reply = "";
-            switch (receiveData.Weixinevent)
-            {
-                case "subscribe":
-                    List<news> intro = new List<news>();
-                    intro.Add(new news("光华园网站欢迎你", introduce, "http://ef.ghy.cn/images/imageData/turnpic/banner1.jpg", "http://www.ghy.cn"));
 
-                    reply = rm.ResponseText(introduce);
-                    break;
-                case "unsubscribe":
-                    Used.WriteLog(receiveData.FromUserName + "取消关注");
-                    break;
-                default:
-                    break;
-            }
-            return reply;
-        }
 
         /// <summary>
         /// 返回信息结果(微信信息返回)
@@ -130,58 +110,51 @@ namespace GhyWeChat
             {
                 WeiXinData receivemsg= WeiXinData.ReadRecevie(weixinXML);
                 ResponseMsg rm = new ResponseMsg(receivemsg.FromUserName, receivemsg.ToUserName);
+                User currentuser = new User();//正在和服务器对话的用户
+                ///开始判断用户的状态
+                bool Exist = false; //用户是否存在
+                for (int i = 0; i < user.Count; i++)
+                {
+                    if (user[i].Username.Equals(receivemsg.FromUserName))
+                    {
+                        currentuser = user[i];  //找到那个用户
+                        Exist = true;
+                    }
+                }
+                if (!Exist)//如果用户不存在 则创建用户加入
+                {
+                    List<string> state = new List<string>();//先实例化一个状态类
+                    state.Add("");
+                    List<string> value = new List<string>();//每个状态对应的值,可以为"";
+                    value.Add("");
+                    List<string> state2 = new List<string>();//实例化一个2级状态类
+                    state2.Add("2");  // 这里不知道一级状态是什么 所以输入2 约定所有所有 0号位置的 state="" 和 state2="2" 为用户初次进入
+                    User newuser = new User();
+                    newuser.Username = receivemsg.FromUserName;
+                    newuser.State = state;
+                    newuser.Value = value;
+                    newuser.State2 = state2;
+                    user.Add(newuser);  //将用户添加进去;
+                    currentuser = newuser;//正在对话的用户为新用户
+                }
+                currentuser.Exipre = System.DateTime.Now.AddMinutes(10);//设置对话过期时间
+                currentuser.Ondialog = true;
+                EditorMode em=new EditorMode();
                 switch (receivemsg.MsgType)
                 {
                     case "event":
-                        reply = receiveEvent(receivemsg);
+                        
+                        reply = em.EventResponse(currentuser, receivemsg, rm);
                         break;
 
                     default:
-                        User currentuser = new User();//正在和服务器对话的用户
-                        ///开始判断用户的状态
-                        bool Exist = false; //用户是否存在
-                        for (int i = 0; i < user.Count; i++)
-                        {
-                            if (user[i].Username.Equals(receivemsg.FromUserName))
-                            {
-                                currentuser = user[i];  //找到那个用户
-                                Exist = true;
-                            }
-                        }
-                        if (!Exist)//如果用户不存在 则创建用户加入
-                        {
-                            List<string> state = new List<string>();//先实例化一个状态类
-                            state.Add("");
-                            List<string> value = new List<string>();//每个状态对应的值,可以为"";
-                            value.Add("");
-                            List<string> state2 = new List<string>();//实例化一个2级状态类
-                            state2.Add("2");  // 这里不知道一级状态是什么 所以输入2 约定所有所有 0号位置的 state="" 和 state2="2" 为用户初次进入
-                            User newuser = new User();
-                            newuser.Username = receivemsg.FromUserName;
-                            newuser.State = state;
-                            newuser.Value = value;
-                            newuser.State2 = state2;
-                            user.Add(newuser);  //将用户添加进去;
-                            currentuser = newuser;//正在对话的用户为新用户
-                        }
-                        currentuser.Exipre = System.DateTime.Now.AddMinutes(10);//设置对话过期时间
-                        currentuser.Ondialog = true;
-
+                    
                         string text = "";
                         if (receivemsg.MsgType.Equals("text"))
                             text = receivemsg.Content;
-
                         if (text.Equals("#"))
                         {
-                            user.Remove(currentuser);
-                            List<news> picnews = new List<news>();
-                            news anews = new news();
-                            anews.Description = introduce;
-                            anews.Title = "光华园网站微信平台";
-                            anews.PicUrl = "http://ef.ghy.swufe.edu.cn/images/imageData/turnpic/2013dreamparty.jpg";
-                            anews.Url = "http://www.ghy.cn";
-                            picnews.Add(anews);
-                            reply = rm.ResponseNews(picnews);
+                            reply=em.GetIntroOrAutoReply(1, rm);
                         }
                         else
                         {
@@ -218,8 +191,7 @@ namespace GhyWeChat
                             }
                             if (!isFind)
                             {
-                                factory = (WeChatFactory)new EditorMode();
-                                reply = factory.Entrance(currentuser, receivemsg, rm);
+                                reply =em.Entrance(currentuser, receivemsg, rm);
                             }
                             //根据用户的首状态进入不同的类开始处理                    
                             //switch (firststate)
@@ -254,11 +226,6 @@ namespace GhyWeChat
                             //    default:
                             //        reply = rm.ResponseText(introduce); break;
                             //}
-                            if (currentuser.State2[0].Equals("99"))//当首状态的2级状态值为99时 剔除该用户;
-                            {
-                                user.Remove(currentuser);
-                                reply = rm.ResponseText(introduce);
-                            }
                             currentuser.Ondialog = false; //标致用户对话结束
                         }
                         break;

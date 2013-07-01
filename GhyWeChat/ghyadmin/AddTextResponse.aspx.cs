@@ -15,9 +15,9 @@ namespace GhyWeChat.ghyadmin
 
         }
         [WebMethod]
-        public static string AddText(string key,string text)
+        public static string AddText(string key,string text,string msgType)
         {
-            if (admin != null)
+            if (admin == null)
             {
                 return "7";
             }
@@ -30,32 +30,35 @@ namespace GhyWeChat.ghyadmin
                 {
                     DbOpeater dbopeater = new DbOpeater();
                     if (dbopeater.CheckKeyExist(key))
-                    {
-                        string sql = "insert into [Response]([Creator],[MsgType],[CreateTime],[Key],[State])values('" + admin.AdminID + "',1,'" + System.DateTime.Now.ToString() + "','" + Key + "','1')";
+                    {  
+                        string sql = "insert into [ResponseText]([Text],[State],[CreateTime])values('" + Text + "',1,'"+DateTime.Now.ToString()+"')";
 
                         if (ah.ExecuteNonQuery(sql) == 1)
                         {
+                              
                             try
                             {
-                            sql = "select top 1 [ResponseID] from [Response] order by ResponseID desc";
+                            sql = "select top 1 [TextID] from [ResponseText] where [Text]='" + Text+"' order by TextID desc";
 
-                            string ResponseID = ah.ExecuteScalar(sql).ToString();
+                            string MsgID = ah.ExecuteScalar(sql).ToString();
 
-                            sql = "insert into [ResponseText]([Text],[ResponseID],[State],[CreateTime])values('" + Text + "','" + ResponseID + "','1','"+DateTime.Now.ToString()+"')";
+                            sql = "insert into [Response]([Creator],[CreateTime],[Key],[State],[MsgType],[MsgID])values('" + admin.AdminID + "','" + System.DateTime.Now.ToString() + "','" + Key + "','1',"+msgType+","+MsgID+")";
 
                             ah.ExecuteNonQuery(sql);
+
                             return "1";        
                             }
                             catch(Exception e)
                             {
-                                sql = "delete from [Response] where [Key]='" + Key + "'";
-                                ah.ExecuteNonQuery(sql);
+                             
                                 return "2"; //添加素材时出错
 
                             }
                         }
+                    
                         else
                             return "6";//添加关键字时出错
+                    
                     }
                     else
                         return "3"; //关键字存在

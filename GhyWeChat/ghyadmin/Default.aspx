@@ -9,9 +9,8 @@
 <body>
     <form id="form1" runat="server">
     <div>
-    <a href="AddTextResponse.aspx">添加关键字回复</a>
-    <a href="EditorIntroduce.aspx">添加自动回复</a>
-    <a href="EditorNotice.aspx">添加被关注时回复</a>
+    <a href="ResponseManager.aspx">自动回复管理</a>
+    <a href="MaterialManager.aspx">素材管理</a>
     </div>
     </form>
 </body>

@@ -20,7 +20,7 @@
         loadScript("Scripts/jquery-1.4.1.js", function () { add(); });
     function add() {
         $(".AddButton").click(function () {
-            var getdata = "{'key':'" + $(".key").val() + "','text':'" + $(".text").val() + "'}"
+            var getdata = "{'key':'" + $(".key").val() + "','text':'" + $(".text").val() + "','msgType':'1'}"
             $.ajax({
                 type: "Post",
                 url: "AddTextResponse.aspx/AddText",

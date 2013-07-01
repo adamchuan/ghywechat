@@ -10,6 +10,6 @@
 namespace GhyWeChat.ghyadmin {
     
     
-    public partial class EditorNotice {
+    public partial class MaterialManager {
     }
 }
