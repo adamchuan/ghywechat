@@ -45,6 +45,10 @@ namespace WebApp
                     foreach (SiriResult c in _List)
                     {
                         reply = c.Response;
+                        if (c.Result == "404")
+                        {
+                            reply = "这句话难倒我了";
+                        }
                     }
                     if (CheckSensitiveString(reply))
                     {
@@ -88,21 +92,15 @@ namespace WebApp
             HttpWebRequest request = webRequest as HttpWebRequest;
 
             //设置cookie
-            CookieContainer cc = new CookieContainer();
-            cc.Add(new Uri(host), new Cookie("JSESSIONID", "FC50E1B413D61FF258ED76121D15DBC8"));
-            cc.Add(new Uri(host), new Cookie("__utma", "119922954.1431887846.1365044080.1365044080.1365044080.1"));
-            cc.Add(new Uri(host), new Cookie("__utmb", "119922954.3.9.1365044144105"));
-            cc.Add(new Uri(host), new Cookie("__utmc", "119922954"));
-            cc.Add(new Uri(host), new Cookie("__utmz", "119922954.1365044080.1.1.utmcsr=tieba.baidu.com|utmccn=(referral)|utmcmd=referral|utmcct=/p/2166507443"));
-            cc.Add(new Uri(host), new Cookie("sagree", "true"));
-            request.CookieContainer = cc;
+           
 
             request.Method = "GET";
             request.ContentType = "application/json; charset=utf-8";
             request.UserAgent = "Mozilla/5.0 (Windows NT 6.2; rv:20.0) Gecko/20100101 Firefox/20.0";
             request.Referer = "	http://www.simsimi.com/talk.htm";
-
-
+            request.Headers.Add("Cookie", "JSESSIONID=BC67349A66EF95A910E807153CC098E3; AWSELB=19EDFB13061D5522C417E7CC830CFD1AE49AA14933D92A4798D892E1C74E8285D459FA462E94FA945A3522503E16B66671372F5A0346D270A9F955361F579D83AD804F79D1; __utma=119922954.1036756745.1384815716.1384815716.1384815716.1; __utmb=119922954.4.9.1384815767416; __utmc=119922954; __utmz=119922954.1384815716.1.1.utmcsr=(direct)|utmccn=(direct)|utmcmd=(none); popupCookie=true; fbCookie=true");
+            request.Referer = "http://www.simsimi.com/talk.htm";
+          
             HttpWebResponse response = (HttpWebResponse)request.GetResponse();
             Stream myResponseStream = response.GetResponseStream();
             StreamReader myStreamReader = new StreamReader(myResponseStream, Encoding.GetEncoding("utf-8"));

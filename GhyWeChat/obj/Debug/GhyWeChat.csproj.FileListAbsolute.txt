@@ -1,0 +1,11 @@
+F:\C#\ghywechat\GhyWeChat\bin\GhyWeChat.dll
+F:\C#\ghywechat\GhyWeChat\bin\GhyWeChat.pdb
+F:\C#\ghywechat\GhyWeChat\bin\Common.dll
+F:\C#\ghywechat\GhyWeChat\bin\Entity.dll
+F:\C#\ghywechat\GhyWeChat\bin\Factory.dll
+F:\C#\ghywechat\GhyWeChat\bin\Common.pdb
+F:\C#\ghywechat\GhyWeChat\bin\Entity.pdb
+F:\C#\ghywechat\GhyWeChat\bin\Factory.pdb
+F:\C#\ghywechat\GhyWeChat\obj\Debug\GhyWeChat.csprojResolveAssemblyReference.cache
+F:\C#\ghywechat\GhyWeChat\obj\Debug\GhyWeChat.dll
+F:\C#\ghywechat\GhyWeChat\obj\Debug\GhyWeChat.pdb

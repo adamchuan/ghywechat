@@ -1,0 +1,11 @@
+F:\C#\ghywechat\Sign\bin\Debug\Sign.dll
+F:\C#\ghywechat\Sign\bin\Debug\Sign.pdb
+F:\C#\ghywechat\Sign\bin\Debug\Common.dll
+F:\C#\ghywechat\Sign\bin\Debug\Entity.dll
+F:\C#\ghywechat\Sign\bin\Debug\Factory.dll
+F:\C#\ghywechat\Sign\bin\Debug\Common.pdb
+F:\C#\ghywechat\Sign\bin\Debug\Entity.pdb
+F:\C#\ghywechat\Sign\bin\Debug\Factory.pdb
+F:\C#\ghywechat\Sign\obj\Debug\Sign.csprojResolveAssemblyReference.cache
+F:\C#\ghywechat\Sign\obj\Debug\Sign.dll
+F:\C#\ghywechat\Sign\obj\Debug\Sign.pdb

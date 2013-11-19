@@ -1,0 +1,14 @@
+F:\C#\ghywechat\WeChatTest\obj\Debug\WeChatTest.csprojResolveAssemblyReference.cache
+F:\C#\ghywechat\WeChatTest\bin\WeChatTest.dll
+F:\C#\ghywechat\WeChatTest\bin\WeChatTest.pdb
+F:\C#\ghywechat\WeChatTest\bin\Entity.dll
+F:\C#\ghywechat\WeChatTest\bin\Factory.dll
+F:\C#\ghywechat\WeChatTest\bin\WebApp.dll
+F:\C#\ghywechat\WeChatTest\bin\Common.dll
+F:\C#\ghywechat\WeChatTest\bin\Newtonsoft.Json.dll
+F:\C#\ghywechat\WeChatTest\bin\Entity.pdb
+F:\C#\ghywechat\WeChatTest\bin\Factory.pdb
+F:\C#\ghywechat\WeChatTest\bin\WebApp.pdb
+F:\C#\ghywechat\WeChatTest\bin\Common.pdb
+F:\C#\ghywechat\WeChatTest\obj\Debug\WeChatTest.dll
+F:\C#\ghywechat\WeChatTest\obj\Debug\WeChatTest.pdb

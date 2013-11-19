@@ -1,0 +1,7 @@
+F:\C#\ghywechat\Entity\bin\Debug\Entity.dll
+F:\C#\ghywechat\Entity\bin\Debug\Entity.pdb
+F:\C#\ghywechat\Entity\bin\Debug\Common.dll
+F:\C#\ghywechat\Entity\bin\Debug\Common.pdb
+F:\C#\ghywechat\Entity\obj\Debug\Entity.csprojResolveAssemblyReference.cache
+F:\C#\ghywechat\Entity\obj\Debug\Entity.dll
+F:\C#\ghywechat\Entity\obj\Debug\Entity.pdb

@@ -1,0 +1,5 @@
+F:\C#\ghywechat\Common\bin\Debug\Common.dll
+F:\C#\ghywechat\Common\bin\Debug\Common.pdb
+F:\C#\ghywechat\Common\obj\Debug\Common.csprojResolveAssemblyReference.cache
+F:\C#\ghywechat\Common\obj\Debug\Common.dll
+F:\C#\ghywechat\Common\obj\Debug\Common.pdb
